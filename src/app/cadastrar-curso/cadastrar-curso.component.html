@@ -1,0 +1,36 @@
+<button class="voltar button" type="button" (click)="voltarPagina()">Voltar</button>
+    <div class="main">
+      <form (ngSubmit)="criarCurso()">
+        <label>
+          Nome do Curso:
+          <input class="input" type="text" name="nomeCurso" [(ngModel)]="nomeCurso" required>
+        </label>
+    
+        <label>
+          Descrição:
+          <input class="input" type="text" name="descricaoCurso" [(ngModel)]="descricaoCurso" required>
+        </label>
+    
+        <label>
+          Coordenador:
+          <input class="input" type="text" name="coordenadorCurso" [(ngModel)]="coordenadorCurso" required>
+        </label>
+    
+        <label>
+          Mensalidade do Curso:
+          <input class="input" type="number" name="mensalidadeCurso" [(ngModel)]="mensalidadeCurso" required>
+        </label>
+    
+        <label>
+          Duração do Curso:
+          <input class="input" type="number" name="duracaoCurso" [(ngModel)]="duracaoCurso" required>
+        </label>
+    
+        <label>
+          Vagas:
+          <input class="input" type="number" name="vagasCurso" [(ngModel)]="vagasCurso" required>
+        </label>
+    
+        <button class="button" type="submit">Criar Curso</button>
+      </form>
+    </div>

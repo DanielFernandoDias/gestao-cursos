@@ -1,0 +1,72 @@
+<div class="main">
+  <form>
+    <label>
+      <input type="radio" [(ngModel)]="inputSelecionado" name="searchType" value="curso"> Curso:
+      <select name="cursoDropdown" [(ngModel)]="cursoEscolhido">
+        <!-- Opções do dropdown para Curso -->
+        <option *ngFor="let curso of cursos" [value]="curso.id">{{ curso.nome }}</option>
+      </select>
+    </label>
+
+    <label>
+      <input type="radio" [(ngModel)]="inputSelecionado" name="searchType" value="disciplina"> Disciplina:
+      <select name="disciplinaDropdown" [(ngModel)]="disciplinaEscolhido">
+        <!-- Opções do dropdown para Disciplina -->
+        <option *ngFor="let disciplina of disciplinas" [value]="disciplina.id">{{ disciplina.nome }}</option>
+      </select>
+    </label>
+
+    <button type="button" (click)="buscar()">Buscar</button>
+    <button type="button" id="newCourseButton" (click)="criarNovoCurso()">Criar novo Curso</button>
+    <button *ngIf="cursoEscolhido && inputSelecionado" class="editarCurso" type="button" id="newCourseButton" (click)="editarCurso()">Alterar Curso</button>
+  </form>
+
+  <div class="resultado">
+
+    <div *ngIf="mostrarCurso.nome">
+      <table>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Semestres</th>
+            <th>Coordenador</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="link-style" (click)="acessarCurso()">{{ mostrarCurso.nome }}</td>
+            <td>{{ mostrarCurso.descricao }}</td>
+            <td>{{ mostrarCurso.duracao }} semestres</td>
+            <td>{{ mostrarCurso.coordenador }}</td>
+          </tr>
+        </tbody>
+      </table>
+      
+    </div>
+    <div *ngIf="mostrarCursoDisciplina.length; else semCurso">
+      <table>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Semestres</th>
+            <th>Coordenador</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cursoByDisciplina of mostrarCursoDisciplina">
+            <td>{{ cursoByDisciplina.nome }}</td>
+            <td>{{ cursoByDisciplina.descricao }}</td>
+            <td>{{ cursoByDisciplina.duracao }} semestres</td>
+            <td>{{ cursoByDisciplina.coordenador }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <ng-template #semCurso>
+      <p *ngIf="mensagemNenhumCurso">Nenhum curso disponível.</p>
+    </ng-template>
+
+  </div>
+</div>

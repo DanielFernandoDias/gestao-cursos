@@ -1,0 +1,53 @@
+<button class="voltar" type="button" (click)="voltarParaBusca()">Voltar para Busca</button>
+<button style="background-color: red;" class="deletar" type="button" (click)="deletarCursoRelacionadoDiscplina()">Deletar</button>
+<div class="main">
+        <h1 class="titulo">{{dadosRecebido.nome}}</h1>
+        <div class="dados">
+            <p>Coordenador: {{dadosRecebido.coordenador}}</p> |
+            <p>Mensalidade do Curso: {{dadosRecebido.mensalidadeCurso}}</p> |
+            <p>Duração do Curso: {{dadosRecebido.duracao}} semestres</p> |
+            <p>Vagas: {{dadosRecebido.vagas}}</p> |
+        </div>
+
+        <h2 class="titulo-descricao">Descrição do curso</h2>
+        <p class="descricao">{{dadosRecebido.descricao}}</p>
+
+        <div class="disciplinas">
+            <h2 class="titulo-disciplina">Disciplinas</h2>
+
+            <button type="button" *ngIf="addDiciplina" (click)="exibirAddDisciplina()">Adicionar Disciplina</button>
+          <div class="addDisciplinas" *ngIf="!addDiciplina">
+            <select name="disciplinaDropdown" id="disciplinaDropdown" [(ngModel)]="selectedDisciplina">
+              <option value=""></option>
+              <option *ngFor="let disciplina of disciplinas" [value]="disciplina.id">{{ disciplina.nome }}</option>
+            </select>
+
+            <button type="button" (click)="addDiciplinaInCurso()">Adicionar</button>
+          </div>
+
+            <table>
+                <thead>
+                  <tr>
+                    <th>C.H</th>
+                    <th>Nome</th>
+                    <th>Professor</th>
+                    <th>Modalidade</th>
+                    <th>Tipo disciplina</th>
+                    <th>Deletar</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let disciplina of disciplinasCurso">
+                    <td>{{ disciplina.cargaHoraria }}</td>
+                    <td>{{ disciplina.nome }}</td>
+                    <td>{{ disciplina.professor }}</td>
+                    <td>{{ disciplina.modalidade }}</td>
+                    <td>{{ disciplina.tipoDisciplina }}</td>
+                    <td style="cursor: pointer;"><img (click)="deleteRelacao(disciplina.id)" src="../../assets/delete.svg" alt=""></td>
+                  </tr>
+                </tbody>
+              </table>
+
+        </div>
+    
+</div>
