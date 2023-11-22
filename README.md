@@ -1,27 +1,43 @@
-# GestaoCursos
+# Documentação do Projeto Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.1.
+## Introdução
 
-## Development server
+Este projeto Angular é uma aplicação de gerenciamento de cursos que permite o cadastro de cursos, a definição de pré-requisitos para cursos e a alocação de disciplinas aos cursos.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Requisitos
 
-## Code scaffolding
+- Cadastro de cursos
+- Definição de pré-requisitos para cursos
+- Alocação de disciplinas aos cursos
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Instalação
 
-## Build
+Para instalar as dependências do projeto, execute o seguinte comando no terminal:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+npm install
+```
 
-## Running unit tests
+## Execução
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Para iniciar o servidor de desenvolvimento, execute o seguinte comando no terminal:
 
-## Running end-to-end tests
+```bash
+ng serve
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+A aplicação estará disponível em `http://localhost:4200`.
 
-## Further help
+## Funcionalidades
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Cadastro de Cursos
+
+Os usuários podem criar novos cursos fornecendo detalhes como o nome do curso, a descrição, o coordenador, a mensalidade, a duração e o número de vagas.
+
+### Definição de Pré-requisitos para Cursos
+
+Os usuários podem definir pré-requisitos para cada curso.
+
+### Alocação de Disciplinas aos Cursos
+
+Os usuários podem alocar disciplinas a cursos. Cada disciplina tem um professor, uma modalidade (presencial ou online) e um tipo (obrigatória ou eletiva).
